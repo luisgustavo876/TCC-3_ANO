@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@ionic/angular": "^7.3.2"
+    "@ionic/angular": "^7.3.2",
+    "firebase": "^10.3.1"
   }
 }
