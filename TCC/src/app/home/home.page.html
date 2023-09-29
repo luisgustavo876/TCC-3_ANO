@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu">
+      </ion-menu-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-row class=" ion-justify-content-center" *ngIf="this.guia=='all'">
+    <ion-col size="10" class="ion-align-items-center">
+        <ion-input></ion-input>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class=" ion-justify-content-center" *ngIf="this.guia=='Dashboard'">
+    <ion-col size="10" class="ion-align-items-center">
+
+    </ion-col>
+  </ion-row>
+
+  <ion-row class=" ion-justify-content-center" *ngIf="this.guia=='Funcionarios'">
+    <ion-col size="10" class="ion-align-items-center">
+
+    </ion-col>
+  </ion-row>
+
+  <ion-row class=" ion-justify-content-center" *ngIf="this.guia=='custom'">
+    <ion-col size="10" class="ion-align-items-center">
+
+    </ion-col>
+  </ion-row>
+
+  <ion-row class=" ion-justify-content-center" *ngIf="this.guia=='Mapa'">
+    <ion-col size="10" class="ion-align-items-center">
+
+    </ion-col>
+  </ion-row>
+
+  <ion-row class=" ion-justify-content-center" *ngIf="this.guia=='SignOut'">
+    <ion-col size="10" class="ion-align-items-center">
+
+    </ion-col>
+  </ion-row>
+
+</ion-content>

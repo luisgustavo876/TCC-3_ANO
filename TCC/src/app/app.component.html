@@ -1,3 +1,69 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+  <ion-menu menuId="main-menu" contentId="main">
+  <ion-content>
+
+    <div class="menu-header-bg"></div>
+
+    <ion-button class="ion-activatable" (click)="TrocaTema()" [class.light-theme]="isDayMode" [class.dark-theme]="!isDayMode" fill="clear">
+      <ion-icon [name]="isSunVisible ? 'sunny-outline' : 'moon'" class="theme-icon"[class.rotate-clockwise]="isSunVisible && rotateClockwise"[class.rotate-counterclockwise]="isMoonVisible && rotateCounterclockwise"[class.small-sun]="isMoonVisible && sunSmall"[class.small-moon]="isSunVisible && moonSmall">
+      </ion-icon>
+    </ion-button>
+  
+  <div class="action-button">
+  <ion-button>
+  <ion-icon slot="start" name="add"></ion-icon> Add Branch
+  </ion-button>
+  </div>
+
+  <ion-segment value="all" (ionChange)="trocar($event)" class="segmento ion-no-margin"> 
+    <ion-list class="menu-items" lines="none">
+    <ion-segment-button value="all" >
+      <ion-item class="active ion-text-start">
+        <ion-icon name="pie-chart-outline"></ion-icon> <h6>Dashboard</h6> 
+       </ion-item>
+    </ion-segment-button>
+
+    <ion-segment-button value="Dashboard">
+      <ion-item class="active ion-text-start">
+        <ion-icon name="browsers-outline"></ion-icon><h6>Dashboard</h6> 
+       </ion-item>   
+    </ion-segment-button>
+    
+    <ion-segment-button value="Funcionarios">
+      <ion-item class="active ion-text-start">
+        <ion-icon name="flash"></ion-icon><h6>Funcionarios</h6> 
+        </ion-item>
+    </ion-segment-button>
+
+    <ion-segment-button value="Mapa">
+      <ion-item class="active ion-text-start">
+        <ion-icon name="chatbubble-ellipses-outline"></ion-icon><h6>Mapa</h6> 
+        </ion-item>
+    </ion-segment-button>
+
+    <ion-segment-button value="custom">
+      <ion-item class="active ion-text-start">
+        <ion-icon name="heart-outline"></ion-icon><h6>Dashboard</h6> 
+        </ion-item>
+    </ion-segment-button>
+
+    <ion-segment-button value="SignOut">
+      <ion-item class="active ion-text-start">
+        <ion-icon name="exit-outline"></ion-icon><h6>Sign out</h6> 
+        </ion-item>
+    </ion-segment-button>
+  </ion-list>
+  </ion-segment>
+  
+  </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+  </ion-app>
+
+    
+
+                <!-- trigger="" -->
+    
+    
+
+    
