@@ -11,43 +11,43 @@
   
   <div class="action-button">
   <ion-button>
-  <ion-icon slot="start" name="add"></ion-icon> Add Branch
+  <ion-icon slot="start" name="add"></ion-icon> Add
   </ion-button>
   </div>
 
-  <ion-segment value="all" (ionChange)="trocar($event)" class="segmento ion-no-margin"> 
+  <ion-segment value="Sitios" (ionChange)="trocar($event)" class="segmento ion-no-margin"> 
     <ion-list class="menu-items" lines="none">
-    <ion-segment-button value="all" >
+    <ion-segment-button [routerLink]="['/sitio']" value="Sitios" >
       <ion-item class="active ion-text-start">
-        <ion-icon name="pie-chart-outline"></ion-icon> <h6>Dashboard</h6> 
+        <ion-icon name="pie-chart-outline"></ion-icon> <h6>Sitios</h6> 
        </ion-item>
     </ion-segment-button>
 
-    <ion-segment-button value="Dashboard">
+    <ion-segment-button [routerLink]="['/login']" value="Dashboard">
       <ion-item class="active ion-text-start">
         <ion-icon name="browsers-outline"></ion-icon><h6>Dashboard</h6> 
        </ion-item>   
     </ion-segment-button>
     
-    <ion-segment-button value="Funcionarios">
+    <ion-segment-button [routerLink]="['/login']" value="Funcionarios">
       <ion-item class="active ion-text-start">
         <ion-icon name="flash"></ion-icon><h6>Funcionarios</h6> 
         </ion-item>
     </ion-segment-button>
 
-    <ion-segment-button value="Mapa">
+    <ion-segment-button [routerLink]="['/login']" value="Mapa">
       <ion-item class="active ion-text-start">
         <ion-icon name="chatbubble-ellipses-outline"></ion-icon><h6>Mapa</h6> 
         </ion-item>
     </ion-segment-button>
 
-    <ion-segment-button value="custom">
+    <ion-segment-button [routerLink]="['/login']" value="custom">
       <ion-item class="active ion-text-start">
         <ion-icon name="heart-outline"></ion-icon><h6>Dashboard</h6> 
         </ion-item>
     </ion-segment-button>
 
-    <ion-segment-button value="SignOut">
+    <ion-segment-button [routerLink]="['/login']" value="SignOut">
       <ion-item class="active ion-text-start">
         <ion-icon name="exit-outline"></ion-icon><h6>Sign out</h6> 
         </ion-item>
@@ -59,11 +59,5 @@
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>
   </ion-app>
-
-    
-
-                <!-- trigger="" -->
-    
-    
 
     

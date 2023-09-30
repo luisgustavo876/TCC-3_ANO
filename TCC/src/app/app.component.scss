@@ -130,9 +130,9 @@
   }
   
   ion-segment-button:focus {
-    border-left: 5px solid;
-    color: #6f4725;
+    border-left:4px solid #6f4725 ;
     padding-left: 15px;
+    transition: 0.5s;
   }
   .segmento{
     display: flex;

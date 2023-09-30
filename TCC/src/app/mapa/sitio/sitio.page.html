@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+<!-- Ícone de menu -->
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu">
+      </ion-menu-button>
+    </ion-buttons>
+
+    <!-- Ícone de seta para o sítio anterior -->
+    <ion-buttons slot="start">
+      <ion-button (click)="situAnterior()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Segmento para selecionar sítios -->
+    <ion-segment [(ngModel)]="sitioSelecionado" (ionChange)="selecionarSitio()">
+      <ion-segment-button *ngFor="let sitio of sitios" [value]="sitio">
+        {{ sitio }}
+      </ion-segment-button>
+    </ion-segment>
+
+    <!-- Ícone de seta para o próximo sítio -->
+    <ion-buttons slot="end">
+      <ion-button (click)="proximoSitio()">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- Ícone de pesquisa -->
+    <ion-buttons slot="primary">
+      <ion-button (click)="abrirSelect()">
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Exibir informações da quadra e árvores com base no sítio selecionado -->
+  <ion-grid>
+    <ion-row *ngIf="sitioSelecionado === 'Matao'">
+
+    </ion-row>
+
+    <ion-row *ngIf="sitioSelecionado === 'Vileiro'">
+
+    </ion-row>
+
+    <ion-row *ngIf="sitioSelecionado === 'acacia'">
+
+    </ion-row>
+
+    <ion-row *ngIf="sitioSelecionado === 'primavera'">
+
+    </ion-row>
+
+    <ion-row *ngIf="sitioSelecionado === 'enxovia'">
+
+    </ion-row>
+
+    <ion-row *ngIf="sitioSelecionado === 'sta-lucia'">
+
+    </ion-row>
+
+    <ion-row *ngIf="sitioSelecionado === 'bela-vista'">
+
+    </ion-row>
+
+    <ion-row *ngIf="sitioSelecionado === 'nsa'">
+
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
+
+
+
