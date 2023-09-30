@@ -8,34 +8,26 @@ import { NavController, AlertController } from '@ionic/angular';
 })
 export class SitioPage implements OnInit {
   sitios: string[] = [
+    'primavera',
     'matao',
     'vileiro',
     'acacia',
-    'primavera',
     'enxovia',
     'sta-lucia',
     'bela-vista',
     'nsa',
   ];
-
-  sitioSelecionado: string;
-  quadraId: number;
-  arvores: { quantidade: number }[] = [];
-  indiceSitio: number = 0; // Índice para controlar a navegação pelos sítios
+  mostrarSegmentQuadra: boolean = false; // Adicione esta variável
+  mostrarSegment: boolean = false;
+  sitioSelecionado: string = '';
+  quadraSelecionada: string = 'Quadra 1'; // Defina o valor padrão aqui
+  indiceSitio: number = 0;
 
   constructor(private navCtrl: NavController, private alertCtrl: AlertController) {
     this.sitioSelecionado = this.sitios[0];
-    this.quadraId = 1;
-
-    this.arvores = [
-      { quantidade: 10 },
-      { quantidade: 15 },
-      { quantidade: 20 },
-    ];
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   situAnterior() {
     this.indiceSitio--;
@@ -54,8 +46,8 @@ export class SitioPage implements OnInit {
   }
 
   selecionarSitio() {
-    // Implemente a lógica para tratar a seleção do sítio aqui
-    // Por exemplo, atualizar os dados da quadra e árvores com base no sítio selecionado
+    console.log('sitioSelecionado:', this.sitioSelecionado);
+    // Implemente a lógica relacionada à seleção do sítio, se necessário.
   }
 
   async abrirSelect() {
@@ -87,4 +79,64 @@ export class SitioPage implements OnInit {
 
     await alert.present();
   }
+
+  mostrarOpcoesQuadras: boolean = true;
+
+ selecionarQuadra() {
+    console.log('quadraSelecionada:', this.quadraSelecionada);
+    // Implemente a lógica relacionada à seleção da quadra aqui, se necessário.
+  }
+  
+
+  quadrasPrimavera: string[] = [
+    'Quadra 1',
+    'Quadra 2', 
+    'Quadra 3',
+    'Quadra 4',
+    'Quadra 5',
+    'Quadra 6',
+    'Quadra 7',
+    'Quadra 8',
+    'Quadra 9'
+  ]; // Substitua com as quadras reais do sítio Primavera
+
+
+
+  async abrirSelectQuadraPrimavera() {
+    const alert = await this.alertCtrl.create({
+      header: 'Selecione uma Quadra',
+      inputs: this.quadrasPrimavera.map((quadra) => ({
+        type: 'radio',
+        label: quadra,
+        value: quadra,
+        checked: quadra === this.quadraSelecionada,
+      })),
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+        },
+        {
+          text: 'OK',
+          handler: (data) => {
+            if (data) {
+              this.quadraSelecionada = data;
+              // Implemente a lógica para tratar a seleção da quadra aqui, se necessário.
+            }
+          },
+        },
+      ],
+    });
+  
+    await alert.present();
+  }
+  valorN: string = '';
+  valorV: string = '';
+  valorF: string = '';
+  valorSECA: string = '';
+
+
+
+
 }
+
