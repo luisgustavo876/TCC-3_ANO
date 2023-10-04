@@ -27,7 +27,20 @@ export class SitioPage implements OnInit {
     this.sitioSelecionado = this.sitios[0];
   }
 
-  ngOnInit() {}
+  ramais: string[] = [];
+
+ngOnInit() {
+  // Inicialize o array de ramais com 12 elementos vazios
+  for (let i = 0; i < 12; i++) {
+    this.ramais.push('');
+  }
+}
+
+// Função para selecionar o ramal
+selecionarRamal(index: number) {
+
+}
+
 
   situAnterior() {
     this.indiceSitio--;
@@ -47,7 +60,6 @@ export class SitioPage implements OnInit {
 
   selecionarSitio() {
     console.log('sitioSelecionado:', this.sitioSelecionado);
-    // Implemente a lógica relacionada à seleção do sítio, se necessário.
   }
 
   async abrirSelect() {
@@ -84,7 +96,6 @@ export class SitioPage implements OnInit {
 
  selecionarQuadra() {
     console.log('quadraSelecionada:', this.quadraSelecionada);
-    // Implemente a lógica relacionada à seleção da quadra aqui, se necessário.
   }
   
 
@@ -136,7 +147,91 @@ export class SitioPage implements OnInit {
   valorSECA: string = '';
 
 
-
+  quadrasComRamais = [
+    {
+      quadra: 'Quadra 1',
+      ramais: Array(12).fill({
+        valorN: '',
+        valorV: '',
+        valorF: '',
+        valorSECA: '',
+      }),
+    },
+    {
+      quadra: 'Quadra 2',
+      ramais: Array(6).fill({
+        valorN: '',
+        valorV: '',
+        valorF: '',
+        valorSECA: '',
+      }),
+    },
+    {
+      quadra: 'Quadra 3',
+      ramais: Array(6).fill({
+        valorN: '',
+        valorV: '',
+        valorF: '',
+        valorSECA: '',
+      }),
+    },
+    {
+      quadra: 'Quadra 4',
+      ramais: Array(6).fill({
+        valorN: '',
+        valorV: '',
+        valorF: '',
+        valorSECA: '',
+      }),
+    },
+    {
+      quadra: 'Quadra 5',
+      ramais: Array(21).fill({
+        valorN: '',
+        valorV: '',
+        valorF: '',
+        valorSECA: '',
+      }),
+    },
+    {
+      quadra: 'Quadra 6',
+      ramais: Array(10).fill({
+        valorN: '',
+        valorV: '',
+        valorF: '',
+        valorSECA: '',
+      }),
+    },
+    {
+      quadra: 'Quadra 7',
+      ramais: Array(3).fill({
+        valorN: '',
+        valorV: '',
+        valorF: '',
+        valorSECA: '',
+      }),
+    },
+    {
+      quadra: 'Quadra 8',
+      ramais: Array(6).fill({
+        valorN: '',
+        valorV: '',
+        valorF: '',
+        valorSECA: '',
+      }),
+    },
+    {
+      quadra: 'Quadra 9',
+      ramais: Array(14).fill({
+        valorN: '',
+        valorV: '',
+        valorF: '',
+        valorSECA: '',
+      }),
+    },
+    // Adicione mais quadras com a estrutura correspondente se necessário.
+  ];
+  
 
 }
 

@@ -120,7 +120,7 @@
   }
 
   ion-segment-button {
-    --color-checked: transparent; /* Cor de fundo transparente quando selecionado */
+    // --color-checked: transparent; /* Cor de fundo transparente quando selecionado */
     --color-unchecked: transparent; /* Cor de fundo transparente quando não selecionado */
     --border-radius-checked: 0; /* Borda arredondada desativada */
     --border-radius-unchecked: 0; /* Borda arredondada desativada */
@@ -129,11 +129,7 @@
     --background: none;
   }
   
-  ion-segment-button:focus {
-    border-left:4px solid #6f4725 ;
-    padding-left: 15px;
-    transition: 0.5s;
-  }
+
   .segmento{
     display: flex;
     justify-content: flex-start;

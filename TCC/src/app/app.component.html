@@ -17,37 +17,31 @@
 
   <ion-segment value="Sitios" (ionChange)="trocar($event)" class="segmento ion-no-margin"> 
     <ion-list class="menu-items" lines="none">
-    <ion-segment-button [routerLink]="['/sitio']" value="Sitios" >
+    <ion-segment-button [routerLink]="['/dashboard']" value="Dashboard" >
       <ion-item class="active ion-text-start">
-        <ion-icon name="pie-chart-outline"></ion-icon> <h6>Sitios</h6> 
+        <ion-icon name="pie-chart-outline"></ion-icon> <h6>Dashboard</h6> 
        </ion-item>
     </ion-segment-button>
 
-    <ion-segment-button [routerLink]="['/login']" value="Dashboard">
+    <ion-segment-button [routerLink]="['/home']" value="home">
       <ion-item class="active ion-text-start">
-        <ion-icon name="browsers-outline"></ion-icon><h6>Dashboard</h6> 
+        <ion-icon name="stats-chart-outline"></ion-icon><h6>Home</h6> 
        </ion-item>   
     </ion-segment-button>
     
-    <ion-segment-button [routerLink]="['/login']" value="Funcionarios">
+    <ion-segment-button [routerLink]="['/funcionarios']" value="Funcionarios">
       <ion-item class="active ion-text-start">
-        <ion-icon name="flash"></ion-icon><h6>Funcionarios</h6> 
+        <ion-icon name="people-outline"></ion-icon><h6>Funcionarios</h6> 
         </ion-item>
     </ion-segment-button>
 
-    <ion-segment-button [routerLink]="['/login']" value="Mapa">
+    <ion-segment-button [routerLink]="['/sitio']" value="sitios">
       <ion-item class="active ion-text-start">
-        <ion-icon name="chatbubble-ellipses-outline"></ion-icon><h6>Mapa</h6> 
+        <ion-icon name="map-outline"></ion-icon> <h6>Sitio</h6> 
         </ion-item>
     </ion-segment-button>
 
-    <ion-segment-button [routerLink]="['/login']" value="custom">
-      <ion-item class="active ion-text-start">
-        <ion-icon name="heart-outline"></ion-icon><h6>Dashboard</h6> 
-        </ion-item>
-    </ion-segment-button>
-
-    <ion-segment-button [routerLink]="['/login']" value="SignOut">
+    <ion-segment-button [routerLink]="['']" value="SignOut">
       <ion-item class="active ion-text-start">
         <ion-icon name="exit-outline"></ion-icon><h6>Sign out</h6> 
         </ion-item>
