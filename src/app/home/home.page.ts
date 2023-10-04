@@ -48,7 +48,7 @@ export class HomePage {
     this.data.dia = String( Number(this.data.dia) + 15)
   }
 
-  aumentarMes(): void{
+  aumentarMes(){
     if (Number(this.data.dia) > 15) {
       this.data.mes = moment().add(1, 'month').calendar(); 
     }
