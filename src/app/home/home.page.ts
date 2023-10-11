@@ -6,6 +6,8 @@ import { MessageService } from '../services/message.service';
 import { AnimationController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
+import { ModalController } from '@ionic/angular';
+
 
 
 @Component({
@@ -16,63 +18,97 @@ import * as moment from 'moment';
 
 export class HomePage {
 
+  
   data_atual:any;
   data = {
     dia:moment().format('DD'),
     mes:moment().format('MMMM'),
     ano:moment().format('YYYY')
   }
-
+  dia: any;
   Quinzena:any;
 
-  constructor() {
+  constructor(private modalCtrl: ModalController) {
     console.log(moment.locale())
     this.data_atual = moment().format('MMMM DD YYYY, h:mm:ss a');
     this.setQuinzena()
+    this.setDia()
   }
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   anteriorQuinzena() {
-    this.data.dia = String(Number(moment().format('DD')) - 15)
+    let diaAtual = Number(this.data.dia);
+
+    if (diaAtual <= 15) {
+      this.data.dia = '16';
+      this.data.mes = moment(this.data.mes, 'MMMM').subtract(1, 'months').format('MMMM');
+    } else {
+      this.data.dia = '1';
+    }
+
     this.setQuinzena();
   }
-  
+
   proximaQuinzena() {
-    console.log(this.data)
-    this.data.dia = String(Number(moment().format('DD')) + 15)
+    let diaAtual = Number(this.data.dia);
+
+    if (diaAtual <= 15) {
+      this.data.dia = '16';
+    } else {
+      this.data.dia = '1';
+      this.data.mes = moment(this.data.mes, 'MMMM').add(1, 'months').format('MMMM');
+    }
+
     this.setQuinzena();
   }
-  definirDiaAumentar() {
-    this.data.dia = String(15 - Number(this.data.dia))
-  }
-  definirDiaDiminuir() {
-    this.data.dia = String( Number(this.data.dia) + 15)
-  }
-
-  aumentarMes(){
-    if (Number(this.data.dia) > 15) {
-      this.data.mes = moment().add(1, 'month').calendar(); 
-    }
-  }
-
-  reduzirMes(){
-    if (Number(this.data.dia) > 15) {
-      this.data.mes = moment().subtract(1, 'month').calendar(); 
-    }
-  }
-
 
   setQuinzena() {
-    let dia = '1°'
-    
-    if (Number(this.data.dia)> 15)
-      dia = "2°"
-    
-    this.Quinzena = dia + 'Quinzena '+this.data.mes
+    let Quinzena = '1°';
+
+    if (Number(this.data.dia) > 15) {
+      Quinzena = '2°';
+    }
+
+    this.Quinzena = Quinzena + ' Quinzena ' + this.data.mes;
+  }
+
+  proximoDia() {
+    const diaAtual = Number(this.data.dia);
+    const ultimoDiaDoMes = moment(this.data.mes, 'MMMM').daysInMonth();
+
+    if (diaAtual < ultimoDiaDoMes) {
+      this.data.dia = String(diaAtual + 1);
+    } else {
+      this.data.dia = '1';
+      this.data.mes = moment(this.data.mes, 'MMMM').add(1, 'months').format('MMMM');
+    }
+
+    this.setQuinzena();
+    this.setDia();
+  }
+
+  anteriorDia() {
+    let diaAtual = Number(this.data.dia);
+
+    if (diaAtual > 1) {
+      this.data.dia = String(diaAtual - 1);
+    } else {
+      const diaAnterior = moment(this.data.mes, 'MMMM').subtract(1, 'months').endOf('month').format('DD');
+      this.data.dia = diaAnterior;
+      this.data.mes = moment(this.data.mes, 'MMMM').subtract(1, 'months').format('MMMM');
+    }
+
+    this.setDia();
+    this.setQuinzena();
+  }
+
+  setDia() {
+    this.dia = 'Dia ' + this.data.dia;
+  }
+
+  abrirCalendario() {
+
   }
 
 }
-
-
-
-
-

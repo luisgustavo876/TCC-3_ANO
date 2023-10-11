@@ -1,38 +1,57 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header >
+  <ion-toolbar color="primary">
 
-    <ion-buttons slot="start">
-      <ion-menu-button menu="main-menu">
-      </ion-menu-button>
-    </ion-buttons>
+  <!-- Linha 1: Quinzena /////////////////////////////////////////////////////// -->
 
-    <!-- Ícone de seta para o sítio anterior -->
-    <ion-buttons  slot="start">
-      <ion-button  (click)="anteriorQuinzena()">
-        <ion-icon name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
 
-    <ion-label>{{this.Quinzena}}</ion-label>
-    
-     <!-- Ícone de seta para a próxima quinzena -->
-     <ion-buttons slot="end">
-      <ion-button (click)="proximaQuinzena()">
-        <ion-icon name="arrow-forward"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+      <ion-buttons slot="start">
+        <ion-menu-button menu="main-menu"></ion-menu-button>
+      
+
+     
+        <ion-button (click)="anteriorQuinzena()">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+  
+
+      <ion-label class="quinzena-nome">{{this.Quinzena}}</ion-label>
+
+      
+        <ion-button (click)="proximaQuinzena()">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+
+ 
+
 
   </ion-toolbar>
 </ion-header>
 
-<!-- Ícone de seta para o sítio anterior -->
-
-
-
-
 <ion-content>
 
-  
-  
-</ion-content>
+       <!-- Linha 2: Dia ///////////////////////////////////////////////////////// -->
+       <ion-row >
+        <ion-col>
+          <ion-buttons class="botao-dia" color="secondary">
+      
+          <ion-button (click)="anteriorDia()" slot="start">
+            <ion-icon name="arrow-back"></ion-icon>
+          </ion-button>
+      
+          <ion-label class="dia-nome">{{this.dia}}</ion-label>
+      
+          <ion-button (click)="proximoDia()" slot="end">
+            <ion-icon name="arrow-forward"></ion-icon>
+          </ion-button>
+      
+          <ion-button (click)="abrirCalendario()">
+            <ion-icon name="calendar"></ion-icon>
+          </ion-button>
 
+        </ion-buttons>
+      </ion-col>
+      </ion-row>
+  
+</ion-content> 

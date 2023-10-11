@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'landing',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -34,7 +34,8 @@ const routes: Routes = [
   {
     path: 'sitio',
     loadChildren: () => import('./mapa/sitio/sitio.module').then( m => m.SitioPageModule)
-  },  {
+  },
+  {
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
