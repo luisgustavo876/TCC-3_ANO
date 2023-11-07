@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticateService } from '../../services/auth.service';
 import { CrudService } from '../../services/crud.service';
 import { Storage, getDownloadURL, ref, uploadBytesResumable } from '@angular/fire/storage';
+import { MessageService } from 'src/app/services/message.service';
 
 
 @Component({
@@ -15,17 +16,24 @@ export class LoginPage implements OnInit {
     public _authenticate: AuthenticateService,
     private _crudService: CrudService,
     public storage: Storage,
-
+    private _message: MessageService
   ) { }
 
   ngOnInit() {
   }
+  passwordType: string = 'password';
+  passwordVisible: boolean = false;
 
-  // isLoading: boolean = false;
-  // nome_usuario: any;
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+    this.passwordType = this.passwordVisible ? 'text' : 'password';
+  }
 
-  // realizarLogin(dados: any) {
-  //   this._authenticate.login(dados.email, dados.password);
-  // }
+  isLoading: boolean = false;
+  nome_usuario: any;
+
+  realizarLogin(dados: any) {
+    this._authenticate.login(dados.email, dados.password);
+  }
 
 }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-  constructor() {}
+  constructor(private alertController: AlertController,
+    private router: Router) {}
   
   isDayMode: boolean = true;
   isSunVisible: boolean = true;
@@ -56,5 +59,39 @@ export class AppComponent {
       }, 500);
     }
   }
+  
+  async exibirAlerta() {
+    const alert = await this.alertController.create({
+      header: 'Confirmação',
+      message: 'Você tem certeza que deseja ir para a página de destino?',
+      buttons: [
+        {
+          text: '',
+          role: 'cancel',
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            this.router.navigate(['landing']);
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+  }
+  alertButtons = [
+    {
+      text: 'No',
+      role: 'cancel',
+    },
+    {
+      text: 'Yes',
+      handler: () => {
+        this.router.navigate(['landing']);
+      },
+    },
+  ];
+
 }
 

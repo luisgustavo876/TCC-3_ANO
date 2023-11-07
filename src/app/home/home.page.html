@@ -1,57 +1,188 @@
-<ion-header >
+<ion-header>
   <ion-toolbar color="primary">
+    <!-- Linha 1: Quinzena /////////////////////////////////////////////////////// -->
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
 
-  <!-- Linha 1: Quinzena /////////////////////////////////////////////////////// -->
+      <ion-button (click)="anteriorQuinzena()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
 
-
-      <ion-buttons slot="start">
-        <ion-menu-button menu="main-menu"></ion-menu-button>
+      <ion-label class="quinzena-nome">{{ Quinzena }}</ion-label>
       
-
-     
-        <ion-button (click)="anteriorQuinzena()">
-          <ion-icon name="arrow-back"></ion-icon>
-        </ion-button>
-  
-
-      <ion-label class="quinzena-nome">{{this.Quinzena}}</ion-label>
-
-      
-        <ion-button (click)="proximaQuinzena()">
-          <ion-icon name="arrow-forward"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-
-
- 
-
+      <ion-button (click)="proximaQuinzena()">
+        <ion-icon name="arrow-forward"></ion-icon>
+      </ion-button>
+    </ion-buttons>
 
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <!-- Linha 2: Dia ///////////////////////////////////////////////////////// -->
 
-       <!-- Linha 2: Dia ///////////////////////////////////////////////////////// -->
-       <ion-row >
-        <ion-col>
-          <ion-buttons class="botao-dia" color="secondary">
-      
-          <ion-button (click)="anteriorDia()" slot="start">
-            <ion-icon name="arrow-back"></ion-icon>
-          </ion-button>
-      
-          <ion-label class="dia-nome">{{this.dia}}</ion-label>
-      
-          <ion-button (click)="proximoDia()" slot="end">
-            <ion-icon name="arrow-forward"></ion-icon>
-          </ion-button>
-      
-          <ion-button (click)="abrirCalendario()">
-            <ion-icon name="calendar"></ion-icon>
-          </ion-button>
+  <ion-row>
+    <ion-col>
+      <ion-buttons class="botao-dia" color="secondary">
+        <ion-button (click)="anteriorDia()" slot="start">
+          <ion-icon name="arrow-back"></ion-icon>
+        </ion-button>
+        <ion-label class="dia-nome">{{ dia }}</ion-label>
+        <ion-button (click)="proximoDia()" slot="end">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-button>
+        <ion-button (click)="abrirCalendario()">
+          <ion-icon name="calendar"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
 
-        </ion-buttons>
+
+<!-- conteudo de vdd -->
+<ion-row class="ion-align-items-center ion-justify-content-center custom-row">
+  <ion-col>
+    
+<form class="form-container">
+
+    <ion-row class="ion-align-items-center ion-justify-content-center custom-row">
+      <ion-col size="4">
+        <ion-label>Funcionário:</ion-label>
       </ion-col>
-      </ion-row>
-  
-</ion-content> 
+    
+      <ion-col size="7">
+            <ion-select  justify="end" class="always-flip" toggleIcon="caret-down-sharp" interface="popover" placeholder="Selecione funcionario">
+              <ion-select-option value="apples">HENRIQUE</ion-select-option>
+              <ion-select-option value="oranges">CRISTIANO</ion-select-option>
+              <ion-select-option value="bananas">MARCELO</ion-select-option>
+            </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center ion-justify-content-center custom-row">
+      <ion-col size="4">
+        <ion-label>Sitio:</ion-label>
+      </ion-col>
+    
+      <ion-col size="7">
+            <ion-select justify="end" class="always-flip" toggleIcon="caret-down-sharp" interface="popover" placeholder="Selecione sitio">
+              <ion-select-option value="apples">Matao</ion-select-option>
+              <ion-select-option value="oranges">Vileiro</ion-select-option>
+              <ion-select-option value="bananas">Primavera</ion-select-option>
+            </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center ion-justify-content-center custom-row">
+      <ion-col size="4">
+        <ion-label>Quadras:</ion-label>
+      </ion-col>
+    
+      <ion-col size="7">
+            <ion-select justify="end" class="always-flip" toggleIcon="caret-down-sharp" interface="popover" placeholder="Selecione quadra">
+              <ion-select-option value="apples">3</ion-select-option>
+              <ion-select-option value="oranges">2</ion-select-option>
+              <ion-select-option value="bananas">1</ion-select-option>
+            </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center ion-justify-content-center custom-row">
+      <ion-col size="4">
+        <ion-label>ramal:</ion-label>
+      </ion-col>
+    
+      <ion-col size="7">
+            <ion-select justify="end" class="always-flip" toggleIcon="caret-down-sharp" interface="popover" placeholder="Selecione ramal">
+              <ion-select-option value="apples">1</ion-select-option>
+              <ion-select-option value="oranges">2</ion-select-option>
+              <ion-select-option value="bananas">3</ion-select-option>
+            </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center ion-justify-content-center custom-row">
+      <ion-col size="4">
+        <ion-label>produçao:</ion-label>
+      </ion-col>
+    
+      <ion-col size="7">
+            <ion-select justify="end" class="always-flip" toggleIcon="caret-down-sharp" interface="popover" placeholder="Selecione produçao">
+              <ion-select-option value="arvores">Árvores</ion-select-option>
+        <ion-select-option value="atividade_diaria">Atividade Diária</ion-select-option>
+            </ion-select>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-align-items-center ion-justify-content-center custom-row">
+      <ion-col size="4">
+        <ion-label>Atividade:</ion-label>
+      </ion-col>
+
+      <ion-col size="7">
+      <ion-select justify="end" class="always-flip" toggleIcon="caret-down-sharp" interface="popover" placeholder="Selecione produçao">
+        <ion-select-option value="N">N</ion-select-option>
+        <ion-select-option value="V">V</ion-select-option>
+        <ion-select-option value="F">F</ion-select-option>
+      </ion-select>
+    </ion-col>
+    </ion-row>
+   
+    <ion-row class="ion-align-items-center ion-justify-content-center custom-row">
+      <ion-col size="4">
+        <ion-label>Árvores:</ion-label>
+      </ion-col>
+    
+      <ion-col size="7">
+        <ion-input  class="ion-text-end" label-placement="end" placeholder="Quantidade de Árvores"  type="number"></ion-input>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row  class="ion-align-items-center ion-justify-content-center custom-row">
+      <ion-col size="4">
+        <ion-label>Atividade Diária:</ion-label>
+      </ion-col>
+    
+      <ion-col size="7">
+            <ion-select justify="end" class="always-flip" toggleIcon="caret-down-sharp" interface="popover" placeholder="Selecione produçao">
+              
+              <ion-select-option>Levantamento</ion-select-option>
+              <ion-select-option>Risco</ion-select-option>
+              <ion-select-option>Risco Instalação</ion-select-option>
+              <ion-select-option>Instalação Completa</ion-select-option>
+              <ion-select-option>Diária Revisão</ion-select-option>
+              <ion-select-option>Levantamento</ion-select-option>
+              <ion-select-option>Coleta 25</ion-select-option>
+              <ion-select-option>Coleta 30</ion-select-option>
+              <ion-select-option>Diária Normal</ion-select-option>
+              <ion-select-option>Diária Chuva</ion-select-option>
+              <ion-select-option>Diária Feriado </ion-select-option>
+              <ion-select-option>Levantamento</ion-select-option>
+              <ion-select-option>Raspa B</ion-select-option>
+              <ion-select-option>Raspa N</ion-select-option>
+              <ion-select-option>Raspa V</ion-select-option>
+              <ion-select-option>Carregamento</ion-select-option>
+              <ion-select-option>Falta Justificativa</ion-select-option>
+              <ion-select-option>Falta</ion-select-option>
+
+            </ion-select>
+      </ion-col>
+    </ion-row>
+       
+
+    <div class="botao-enviar">
+      <ion-button size="medium" color="tertiary"  (click)="salvar()">
+        enviar
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-button>
+      </div>
+   
+
+
+
+  </form>
+</ion-col>
+</ion-row>
+  <!-- Adicione seções semelhantes para outros dias -->
+
+</ion-content>

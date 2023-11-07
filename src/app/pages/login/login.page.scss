@@ -3,15 +3,10 @@
  ion-header {
   ion-toolbar {
     --background: var(--ion-color-primary);
-    color: #fff;
+    color: var(--ion-color-primary-contrast);
   }
 }
 
-/* Estilos do Conteúdo */
-ion-content.custom-background {
-  --ion-background-color: var(--ion-color-custom-background);
-  color: var(--ion-color-custom-text);
-}
 
 /* Estilos do Título */
 .header {
@@ -51,7 +46,7 @@ ion-content.custom-background {
   .custom-logos {
     text-align: center;
   }
-  
+
   /* Estilos do Link "Criar Conta" */
   .custom-create-account {
     display: flex;
@@ -78,4 +73,10 @@ ion-content.custom-background {
         font-weight: 700;
         text-decoration: none;
     }
+}
+.botao-logar{
+  text-align: right;
+margin-top: 2px;
+margin-right: 10px;
+margin-bottom: 8px;
 }

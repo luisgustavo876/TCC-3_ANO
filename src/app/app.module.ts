@@ -12,13 +12,21 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Importe o ReactiveFormsModule
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations:
+  
+  
+  [AppComponent],
+  
+  
   imports: [
     BrowserModule, 
+    ReactiveFormsModule, // Importe o ReactiveFormsModule aqui
     IonicModule.forRoot(),
     AppRoutingModule,
+    
     
     //importação de funções para que o firebase funcione no projeto
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), 

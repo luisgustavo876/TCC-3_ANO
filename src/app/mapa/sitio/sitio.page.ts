@@ -8,8 +8,6 @@ import { NavController, AlertController } from '@ionic/angular';
 })
 export class SitioPage implements OnInit {
   sitios: string[] = [
-
-    
     'primavera',
     'matao',
     'vileiro',

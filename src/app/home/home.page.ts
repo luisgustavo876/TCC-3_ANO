@@ -4,9 +4,9 @@ import { CrudService } from '../services/crud.service';
 import { Storage, getDownloadURL, ref, uploadBytesResumable } from '@angular/fire/storage';
 import { MessageService } from '../services/message.service';
 import { AnimationController } from '@ionic/angular';
-import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
 import { ModalController } from '@ionic/angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 
@@ -18,24 +18,38 @@ import { ModalController } from '@ionic/angular';
 
 export class HomePage {
 
+
+  // funcionarios: string[] = [];
+
+
   
-  data_atual:any;
+  
+  data_atual: any;
   data = {
-    dia:moment().format('DD'),
-    mes:moment().format('MMMM'),
-    ano:moment().format('YYYY')
-  }
+    dia: moment().format('DD'),
+    mes: moment().format('MMMM'),
+    ano: moment().format('YYYY'),
+  };
   dia: any;
-  Quinzena:any;
+  Quinzena: any;
 
-  constructor(private modalCtrl: ModalController) {
-    console.log(moment.locale())
+  productionType: string = 'arvores'; // Inicialmente exibindo 'arvores'
+
+  constructor(
+    public crudService:CrudService
+  ) {
+    
+    console.log(moment.locale());
     this.data_atual = moment().format('MMMM DD YYYY, h:mm:ss a');
-    this.setQuinzena()
-    this.setDia()
+    this.setQuinzena();
+    this.setDia();
+  }
+  
+
+  salvar() {
+    this.crudService.insert(this.data,'Dados')
   }
 
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   anteriorQuinzena() {
     let diaAtual = Number(this.data.dia);
@@ -48,6 +62,8 @@ export class HomePage {
     }
 
     this.setQuinzena();
+    this.setDia();
+
   }
 
   proximaQuinzena() {
@@ -61,6 +77,7 @@ export class HomePage {
     }
 
     this.setQuinzena();
+    this.setDia();
   }
 
   setQuinzena() {
@@ -107,8 +124,10 @@ export class HomePage {
     this.dia = 'Dia ' + this.data.dia;
   }
 
-  abrirCalendario() {
 
+
+  abrirCalendario() {
+    // Implemente a lógica para abrir o calendário, se necessário.
   }
 
 }
